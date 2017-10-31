@@ -71,6 +71,7 @@ MAKE_FLAGS := \
 	NO_PYTHON="YesPlease" \
 	NO_TCLTK="YesPlease" \
 	NO_INSTALL_HARDLINKS="yes" \
+	uname_S="Linux" \
 
 CONFIGURE_ARGS += \
 	--without-iconv \
