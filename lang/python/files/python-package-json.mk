@@ -8,7 +8,7 @@
 define Package/python-json
 $(call Package/python/Default)
   TITLE:=Python $(PYTHON_VERSION) json module
-  DEPENDS:=+python-base
+  DEPENDS:=+python-light
 endef
 
 $(eval $(call PyBasePackage,python-json, \
