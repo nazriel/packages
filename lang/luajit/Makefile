@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luajit
-PKG_VERSION:=2017-01-17-71ff7ef
+PKG_VERSION:=2018-03-12-fe651bf
 PKG_RELEASE:=1
 PKG_MAINTAINER:=Morteza Milani <milani@pichak.co>
 PKG_LICENSE:=MIT
@@ -9,7 +9,7 @@ PKG_LICENSE_FILES:=COPYRIGHT
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/LuaJIT/LuaJIT.git
-PKG_SOURCE_VERSION:=71ff7ef8a7e0592dedb3527d4aacc68bf04af0bd
+PKG_SOURCE_VERSION:=fe651bf6e2b4d02b624be3c289378c08bab2fa9b
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_MIRROR_HASH:=543994d0822515d9b7dc7cbaa7737c48258403d56a3b30e729267421265d4618
@@ -66,14 +66,14 @@ define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/*.{a,so*} $(1)/usr/lib/
 	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/luajit.pc $(1)/usr/lib/pkgconfig/
-	$(CP) $(PKG_INSTALL_DIR)/usr/bin/luajit-2.1.0-beta2 $(PKG_INSTALL_DIR)/usr/bin/$(PKG_NAME)
+	$(CP) $(PKG_INSTALL_DIR)/usr/bin/luajit-2.1.0-beta3 $(PKG_INSTALL_DIR)/usr/bin/$(PKG_NAME)
 endef
 
 define Package/luajit/install
 	$(INSTALL_DIR) $(1)/usr/lib/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/*.so $(1)/usr/lib/
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(CP) $(PKG_INSTALL_DIR)/usr/bin/luajit-2.1.0-beta2 $(1)/usr/bin/$(PKG_NAME)
+	$(CP) $(PKG_INSTALL_DIR)/usr/bin/luajit-2.1.0-beta3 $(1)/usr/bin/$(PKG_NAME)
 endef
 
 define Host/Compile
@@ -87,7 +87,7 @@ define Host/Install
 	$(MAKE) $(HOST_JOBS) -C $(HOST_BUILD_DIR) \
 		DPREFIX=$(STAGING_DIR_HOSTPKG) \
 		install
-	$(CP) $(STAGING_DIR_HOSTPKG)/bin/luajit-2.1.0-beta2 $(STAGING_DIR_HOSTPKG)/bin/$(PKG_NAME)
+	$(CP) $(STAGING_DIR_HOSTPKG)/bin/luajit-2.1.0-beta3 $(STAGING_DIR_HOSTPKG)/bin/$(PKG_NAME)
 endef
 
 $(eval $(call HostBuild,luajit))
